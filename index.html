@@ -5,14 +5,47 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Space Sailors Wiki</title>
+        <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="css/styling.css">
     </head>
     <body>
+        <!-- Website Navigation-->
+        <a id="menu-toggle" href="#" class="btn btn-dark btn-lg toggle"><i class="fa fa-bars"></i></a>
+    <nav id="sidebar-wrapper">
+        <ul class="sidebar-nav">
+            <a id="menu-close" href="#" class="btn btn-light btn-lg pull-right toggle"><i class="fa fa-times"></i></a>
+            <li class="sidebar-brand">
+                <a href="#top">TheSpaceAce</a>
+            </li>
+            <li>
+                <a href="#top">Home</a>
+            </li>
+            <li>
+                <a href="#about">About</a>
+            </li>
+            <li>
+                <a href="#services">What I Do</a>
+            </li>
+            <li>
+                <a href="#printing">3D Printing</a>
+            </li>
+            <li>
+                <a href="#portfolio">Portfolio</a>
+            </li>
+            <li>
+                <a href="#footer">Contact</a>
+            </li>
+        </ul>
+    </nav>
+        <!-- Page header-->
         <header>
             <div class="nav container">
                 <a href="#" class="logo">Space Sailors <span>Wiki</span></a>
             </div>
         </header>
+
+        <!-- Home page-->
+
         <section class="home" id="home">
             <div class="home-text container">
                 <h2 class="home-title">The Space Sailors Wiki</h2>
@@ -21,5 +54,38 @@
         </section>
 
         </section>
+        <!-- scripts-->
+        <script>
+            //closes the sidebar
+            $("#menu-close").click(function(e) {
+                e.preventDefault();
+                $("#sidebar-wrapper").toggleClass("active");
+            });
+
+            // Opens the sidebar menu
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#sidebar-wrapper").toggleClass("active");
+            });
+
+            // Scrolls to the selected menu item on the page
+            $(function() {
+                $('a[href*=#]:not([href=#])').click(function() {
+                    if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                        var target = $(this.hash);
+                        target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                        if (target.length) {
+                            $('html,body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000);
+                            return false;
+                        }
+                    }
+                });
+            });
+        </script>
+        <!-- jQuery import-->
+        <script src="js/jQuery.js"></script>
     </body>
 </html>
