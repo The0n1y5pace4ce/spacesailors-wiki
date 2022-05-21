@@ -42,7 +42,7 @@ section{
 .home{
     width: 100%;
     min-height: 440px;
-    background: rgb(39, 36, 36);
+    background-image: url(../img/orion2.png);
     display: grid;
     justify-content: center;
     align-items: center;
